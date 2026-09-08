@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import IconCard from '../components/IconCard.astro';
+import contato from '../data/contato.json';
+---
+
+<BaseLayout title="Contato">
+  <Breadcrumb title="Fale Conosco" />
+  <section class="section">
+    <div class="container">
+      <p class="contact-lead">{contato.textoLead}</p>
+      <div class="icon-cards-grid">
+        <IconCard icon="bi-geo-alt" title="Endereço" description={contato.endereco} />
+        <IconCard icon="bi-telephone" title="Telefone" description={contato.telefone} />
+        <IconCard icon="bi-envelope" title="E-mail" description={contato.email} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

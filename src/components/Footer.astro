@@ -1,0 +1,67 @@
+---
+import settings from '../data/settings.json';
+import contato from '../data/contato.json';
+
+const year = new Date().getFullYear();
+const socials = [
+  { key: 'facebook', icon: 'bi-facebook' },
+  { key: 'instagram', icon: 'bi-instagram' },
+  { key: 'linkedin', icon: 'bi-linkedin' },
+  { key: 'youtube', icon: 'bi-youtube' },
+] as const;
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="/" class="logo">
+          <span class="logo-badge"><i class="bi bi-mortarboard-fill"></i></span>
+          {settings.nomeDepartamento}
+        </a>
+        <p>{settings.descricaoFooter}</p>
+        <h6 style="color:#fff;font-size:14px;margin-bottom:10px;">Siga-nos</h6>
+        <div class="footer-social">
+          {socials.map(({ key, icon }) => {
+            const url = (settings.redesSociais as Record<string, string>)[key];
+            return url ? (
+              <a href={url} aria-label={key} target="_blank" rel="noopener"><i class={`bi ${icon}`}></i></a>
+            ) : null;
+          })}
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Links Rápidos</h4>
+        <div class="footer-links-cols">
+          <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="/sobre">O Departamento</a></li>
+            <li><a href="/graduacao">Graduação</a></li>
+            <li><a href="/pos-graduacao">Pós-Graduação</a></li>
+            <li><a href="/servicos">Serviços</a></li>
+          </ul>
+          <ul>
+            <li><a href="/noticias">Notícias</a></li>
+            <li><a href="/pessoal/docentes">Docentes</a></li>
+            <li><a href="/pessoal/funcionarios">Funcionários</a></li>
+            <li><a href="/contato">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-geo-alt"></i> {contato.endereco}</li>
+          <li><i class="bi bi-telephone"></i> {contato.telefone}</li>
+          <li><i class="bi bi-envelope"></i> <a href={`mailto:${contato.email}`}>{contato.email}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {year} {settings.nomeDepartamento}. Todos os direitos reservados. — Site de exemplo, gerado com Astro + Sveltia CMS.</span>
+    </div>
+  </div>
+</footer>

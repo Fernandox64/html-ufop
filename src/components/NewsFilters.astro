@@ -1,0 +1,60 @@
+---
+export interface Props {
+  years: number[];
+}
+const { years } = Astro.props;
+---
+
+<div class="news-filters">
+  <button class="btn btn-sm active" data-filter-tipo="all">Todas</button>
+  <button class="btn btn-sm" data-filter-tipo="noticia">Notícias</button>
+  <button class="btn btn-sm" data-filter-tipo="edital">Editais</button>
+</div>
+<div class="news-filters years">
+  <button class="btn btn-sm active" data-filter-ano="all">Todos os anos</button>
+  {years.map((y) => (
+    <button class="btn btn-sm" data-filter-ano={y}>{y}</button>
+  ))}
+</div>
+<p class="news-count" data-news-count></p>
+
+<script>
+  const tipoButtons = document.querySelectorAll<HTMLElement>('[data-filter-tipo]');
+  const anoButtons = document.querySelectorAll<HTMLElement>('[data-filter-ano]');
+  const countEl = document.querySelector<HTMLElement>('[data-news-count]');
+
+  let tipo = 'all';
+  let ano = 'all';
+
+  function apply() {
+    let visible = 0;
+    document.querySelectorAll<HTMLElement>('[data-news-item]').forEach((el) => {
+      const matchTipo = tipo === 'all' || el.getAttribute('data-tipo') === tipo;
+      const matchAno = ano === 'all' || el.getAttribute('data-ano') === ano;
+      const show = matchTipo && matchAno;
+      el.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (countEl) {
+      const anoLabel = ano === 'all' ? 'no total' : `em ${ano}`;
+      const palavra = visible === 1 ? 'publicação' : 'publicações';
+      countEl.textContent = `${visible} ${palavra} ${anoLabel}.`;
+    }
+  }
+
+  tipoButtons.forEach((btn) => btn.addEventListener('click', () => {
+    tipoButtons.forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    tipo = btn.getAttribute('data-filter-tipo') || 'all';
+    apply();
+  }));
+
+  anoButtons.forEach((btn) => btn.addEventListener('click', () => {
+    anoButtons.forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    ano = btn.getAttribute('data-filter-ano') || 'all';
+    apply();
+  }));
+
+  apply();
+</script>

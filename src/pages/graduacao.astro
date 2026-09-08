@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import IconCard from '../components/IconCard.astro';
+import graduacao from '../data/graduacao.json';
+---
+
+<BaseLayout title="Graduação">
+  <Breadcrumb title="Graduação" />
+  <section class="section">
+    <div class="container">
+      <p class="lead-center">{graduacao.textoLead}</p>
+      <div class="icon-cards-grid cols-2">
+        {graduacao.cursos.map((c) => (
+          <IconCard icon={c.icone} title={`${c.nome} (${c.modalidade})`} description="" />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

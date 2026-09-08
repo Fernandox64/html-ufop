@@ -42,6 +42,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* ---------- Hero slider ---------- */
+  var hsRoot = document.querySelector('[data-carousel="hero"]');
+  if (hsRoot) {
+    var hsTrack = hsRoot.querySelector('[data-track]');
+    var hsDotsWrap = hsRoot.querySelector('[data-dots]');
+    var hsSlides = hsTrack.children;
+    var hsCurrent = 0;
+    var hsTimer;
+
+    for (var h = 0; h < hsSlides.length; h++) {
+      var hsDot = document.createElement('button');
+      if (h === 0) hsDot.classList.add('active');
+      hsDot.setAttribute('aria-label', 'Slide ' + (h + 1));
+      (function (idx) {
+        hsDot.addEventListener('click', function () { goToHsSlide(idx); });
+      })(h);
+      hsDotsWrap.appendChild(hsDot);
+    }
+
+    function goToHsSlide(idx) {
+      hsCurrent = (idx + hsSlides.length) % hsSlides.length;
+      hsTrack.style.transform = 'translateX(-' + (hsCurrent * 100) + '%)';
+      Array.prototype.forEach.call(hsDotsWrap.children, function (d, i) {
+        d.classList.toggle('active', i === hsCurrent);
+      });
+    }
+
+    function nextHsSlide() { goToHsSlide(hsCurrent + 1); }
+    function prevHsSlide() { goToHsSlide(hsCurrent - 1); }
+
+    hsRoot.querySelector('[data-next]').addEventListener('click', nextHsSlide);
+    hsRoot.querySelector('[data-prev]').addEventListener('click', prevHsSlide);
+
+    function startHsAuto() { hsTimer = setInterval(nextHsSlide, 6000); }
+    startHsAuto();
+
+    hsRoot.addEventListener('mouseenter', function () { clearInterval(hsTimer); });
+    hsRoot.addEventListener('mouseleave', startHsAuto);
+  }
+
   /* ---------- Course filter ---------- */
   var filterButtons = document.querySelectorAll('#filterTabs button');
   var courseCards = document.querySelectorAll('#coursesGrid .course-card');

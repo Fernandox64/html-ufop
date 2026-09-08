@@ -1,0 +1,87 @@
+---
+import settings from '../data/settings.json';
+
+const nameParts = settings.nomeDepartamento.split(' ');
+const nameLast = nameParts.pop();
+const nameRest = nameParts.join(' ');
+
+const navItems = [
+  { href: '/', label: 'Início' },
+  { href: '/sobre', label: 'O Departamento' },
+  { href: '/graduacao', label: 'Graduação' },
+  { href: '/pos-graduacao', label: 'Pós-Graduação' },
+  { href: '/servicos', label: 'Serviços' },
+  { href: '/noticias', label: 'Notícias' },
+];
+---
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="/" class="logo">
+      <span class="logo-badge"><i class="bi bi-mortarboard-fill"></i></span>
+      {nameRest ? `${nameRest} ` : ''}<span>{nameLast}</span>
+    </a>
+
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        {navItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+        <li class="has-dropdown">
+          <a href="#">Pessoal <i class="bi bi-chevron-down" style="font-size:11px"></i></a>
+          <ul class="dropdown">
+            <li><a href="/pessoal/docentes">Docentes</a></li>
+            <li><a href="/pessoal/funcionarios">Funcionários</a></li>
+          </ul>
+        </li>
+        <li><a href="/contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="/admin/index.html" class="admin-link" title="Área administrativa" aria-label="Área administrativa">
+        <i class="bi bi-lock-fill"></i>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu"><i class="bi bi-list"></i></button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navOverlay = document.getElementById('navOverlay');
+
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  function closeMenu() {
+    navMenu?.classList.remove('open');
+    navOverlay?.classList.remove('show');
+    if (navToggle) navToggle.innerHTML = '<i class="bi bi-list"></i>';
+  }
+
+  navToggle?.addEventListener('click', () => {
+    const isOpen = navMenu?.classList.toggle('open');
+    navOverlay?.classList.toggle('show', !!isOpen);
+    if (navToggle) navToggle.innerHTML = isOpen ? '<i class="bi bi-x-lg"></i>' : '<i class="bi bi-list"></i>';
+  });
+
+  navOverlay?.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.nav-menu > li:not(.has-dropdown) > a, .nav-menu .dropdown a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.querySelectorAll('.has-dropdown > a').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        (link as HTMLElement).parentElement?.classList.toggle('open');
+      }
+    });
+  });
+</script>

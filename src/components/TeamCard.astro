@@ -1,0 +1,14 @@
+---
+export interface Props {
+  foto: string;
+  nome: string;
+  subtitulo: string;
+}
+const { foto, nome, subtitulo } = Astro.props;
+---
+
+<div class="team-card">
+  <img src={foto} alt={nome} />
+  <h3>{nome}</h3>
+  <p>{subtitulo}</p>
+</div>

@@ -1,0 +1,35 @@
+---
+export interface Props {
+  href: string;
+  image: string;
+  tipo: 'noticia' | 'edital';
+  date: Date;
+  title: string;
+  resumo?: string;
+  variant?: 'grid' | 'mini';
+}
+const { href, image, tipo, date, title, resumo, variant = 'grid' } = Astro.props;
+const tipoLabel = tipo === 'noticia' ? 'Notícia' : 'Edital';
+const dateLabel = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+---
+
+{variant === 'grid' ? (
+  <article class="news-card" data-news-item data-tipo={tipo} data-ano={date.getFullYear()}>
+    <a href={href}><img src={image} alt={title} /></a>
+    <div class="news-card-body">
+      <span class={`badge badge-${tipo}`}>{tipoLabel}</span>
+      <span class="news-date">{dateLabel}</span>
+      <h3><a href={href}>{title}</a></h3>
+      {resumo && <p>{resumo}</p>}
+    </div>
+  </article>
+) : (
+  <article class="mini-news-card">
+    <a href={href}><img src={image} alt={title} /></a>
+    <div>
+      <span class={`badge badge-${tipo}`}>{tipoLabel}</span>
+      <h3><a href={href}>{title}</a></h3>
+      <div class="meta"><i class="bi bi-clock"></i> {dateLabel}</div>
+    </div>
+  </article>
+)}

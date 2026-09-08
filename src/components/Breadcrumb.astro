@@ -1,0 +1,16 @@
+---
+export interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<section class="breadcrumb-hero">
+  <div class="container">
+    <h1>{title}</h1>
+    <nav aria-label="breadcrumb">
+      <span><a href="/">Início</a></span>
+      <span>{title}</span>
+    </nav>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+export interface Props {
+  icon: string;
+  title: string;
+  description?: string;
+  linkText?: string;
+  linkHref?: string;
+}
+const { icon, title, description, linkText, linkHref } = Astro.props;
+---
+
+<div class="icon-card">
+  <div class="icon-circle"><i class={`bi ${icon}`}></i></div>
+  <h3>{title}</h3>
+  {description && <p>{description}</p>}
+  {linkText && linkHref && (
+    <a href={linkHref} class="card-link">{linkText} <i class="bi bi-arrow-right"></i></a>
+  )}
+</div>

@@ -63,36 +63,64 @@
 </header>
 <div class="nav-overlay" id="navOverlay"></div>
 
-<!-- ===== Hero ===== -->
-<section class="hero" id="home">
-  <div class="container">
-    <div class="hero-content">
-      <span class="eyebrow"><i class="bi bi-stars"></i> Educação de qualidade para todos</span>
-      <h1>Seu futuro brilhante é a <em>nossa missão</em></h1>
-      <p>Cursos presenciais e online com professores especialistas, certificado reconhecido pelo mercado e suporte completo para você alcançar seus objetivos.</p>
-      <div class="hero-actions">
-        <a href="#courses" class="btn btn-primary">Ver Cursos <i class="bi bi-arrow-right"></i></a>
-        <a href="#contact" class="btn btn-outline-dark">Fale Conosco</a>
-      </div>
-      <div class="hero-trust">
-        <div><strong>1000+</strong><span>Alunos formados</span></div>
-        <div><strong>60+</strong><span>Professores especialistas</span></div>
-        <div><strong>4.9/5</strong><span>Avaliação média</span></div>
+<!-- ===== Hero Slider ===== -->
+<section class="hero-slider" id="home" data-carousel="hero">
+  <div class="hs-track" data-track>
+    <div class="hs-slide" style="background-image:linear-gradient(90deg, rgba(16,24,40,.82) 0%, rgba(16,24,40,.45) 60%, rgba(16,24,40,.15) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80')">
+      <div class="container">
+        <div class="hs-content">
+          <span class="eyebrow"><i class="bi bi-stars"></i> Educação de qualidade para todos</span>
+          <h1>Seu futuro brilhante é a <em>nossa missão</em></h1>
+          <p>Cursos presenciais e online com professores especialistas, certificado reconhecido pelo mercado e suporte completo para você alcançar seus objetivos.</p>
+          <div class="hero-actions">
+            <a href="#courses" class="btn btn-primary">Ver Cursos <i class="bi bi-arrow-right"></i></a>
+            <a href="#contact" class="btn btn-outline">Fale Conosco</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-media">
-      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80" alt="Alunos estudando em sala de aula moderna">
-      <div class="hero-card card-rating">
-        <div class="icon-circle"><i class="bi bi-star-fill"></i></div>
-        <div><strong>4.9 / 5</strong><span>Avaliação dos alunos</span></div>
+    <div class="hs-slide" style="background-image:linear-gradient(90deg, rgba(16,24,40,.82) 0%, rgba(16,24,40,.45) 60%, rgba(16,24,40,.15) 100%), url('https://images.unsplash.com/photo-1544531585-9847b68c8c86?auto=format&fit=crop&w=1600&q=80')">
+      <div class="container">
+        <div class="hs-content">
+          <span class="eyebrow"><i class="bi bi-mortarboard"></i> Professores especialistas</span>
+          <h1>Aprenda com quem <em>já vive o mercado</em></h1>
+          <p>Nosso corpo docente é formado por profissionais atuantes, prontos para compartilhar experiência real de mercado em cada aula.</p>
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">Conheça a EduCenter <i class="bi bi-arrow-right"></i></a>
+            <a href="#courses" class="btn btn-outline">Ver Cursos</a>
+          </div>
+        </div>
       </div>
-      <div class="hero-card card-cert">
-        <div class="icon-circle"><i class="bi bi-patch-check-fill"></i></div>
-        <div><strong>Certificado</strong><span>Reconhecido pelo MEC</span></div>
+    </div>
+    <div class="hs-slide" style="background-image:linear-gradient(90deg, rgba(16,24,40,.82) 0%, rgba(16,24,40,.45) 60%, rgba(16,24,40,.15) 100%), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1600&q=80')">
+      <div class="container">
+        <div class="hs-content">
+          <span class="eyebrow"><i class="bi bi-pencil-square"></i> Matrículas abertas</span>
+          <h1>Garanta sua vaga para o <em>próximo semestre</em></h1>
+          <p>As inscrições estão abertas por tempo limitado. Comece agora a construir a carreira que você sempre quis.</p>
+          <div class="hero-actions">
+            <a href="#courses" class="btn btn-primary">Matricule-se <i class="bi bi-arrow-right"></i></a>
+            <a href="#contact" class="btn btn-outline">Fale Conosco</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <button class="hs-nav prev" data-prev aria-label="Slide anterior"><i class="bi bi-chevron-left"></i></button>
+  <button class="hs-nav next" data-next aria-label="Próximo slide"><i class="bi bi-chevron-right"></i></button>
+  <div class="hs-dots" data-dots></div>
 </section>
+
+<div class="hero-trust-bar">
+  <div class="container">
+    <div class="hero-trust">
+      <div><strong>1000+</strong><span>Alunos formados</span></div>
+      <div><strong>60+</strong><span>Professores especialistas</span></div>
+      <div><strong>4.9/5</strong><span>Avaliação média</span></div>
+    </div>
+  </div>
+</div>
 
 <!-- ===== Features / Banner cards ===== -->
 <section class="features">

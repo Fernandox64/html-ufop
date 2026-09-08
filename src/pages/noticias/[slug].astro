@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('noticias');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const tipoLabel = entry.data.tipo === 'noticia' ? 'Notícia' : 'Edital';
+const dateLabel = entry.data.date.toLocaleDateString('pt-BR', {
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+});
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.resumo}>
+  <Breadcrumb title={tipoLabel} />
+  <section class="section">
+    <div class="container">
+      <div class="news-detail">
+        <span class={`badge badge-${entry.data.tipo}`}>{tipoLabel}</span>
+        <span class="news-date">{dateLabel}</span>
+        <h1>{entry.data.title}</h1>
+        <p class="lead">{entry.data.resumo}</p>
+        <img class="cover" src={entry.data.image} alt={entry.data.title} />
+        <div class="body-text">
+          <Content />
+        </div>
+        <a href="/noticias" class="back-link"><i class="bi bi-arrow-left"></i> Voltar para notícias e editais</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

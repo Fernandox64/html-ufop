@@ -1,0 +1,69 @@
+---
+export interface Props {
+  slides: { imagem: string; legenda?: string }[];
+  overlay?: boolean;
+  plain?: boolean;
+}
+const { slides, overlay = false, plain = false } = Astro.props;
+---
+
+<div class:list={['carousel', { plain }]} data-carousel>
+  <div class="carousel-track" data-track>
+    {slides.map((s) => (
+      <div class="carousel-slide">
+        <img src={s.imagem} alt={s.legenda || ''} />
+        {overlay && s.legenda && <div class="carousel-caption">{s.legenda}</div>}
+      </div>
+    ))}
+  </div>
+  {slides.length > 1 && (
+    <>
+      <button class="carousel-nav prev" data-prev aria-label="Anterior"><i class="bi bi-chevron-left"></i></button>
+      <button class="carousel-nav next" data-next aria-label="Próximo"><i class="bi bi-chevron-right"></i></button>
+      <div class="carousel-dots" data-dots></div>
+    </>
+  )}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]');
+    if (!track) return;
+    const slides = Array.from(track.children) as HTMLElement[];
+    const dotsWrap = root.querySelector<HTMLElement>('[data-dots]');
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    if (dotsWrap) {
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    function goTo(i: number) {
+      current = (i + slides.length) % slides.length;
+      track!.style.transform = `translateX(-${current * 100}%)`;
+      if (dotsWrap) {
+        Array.from(dotsWrap.children).forEach((d, di) => d.classList.toggle('active', di === current));
+      }
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    root.querySelector('[data-next]')?.addEventListener('click', next);
+    root.querySelector('[data-prev]')?.addEventListener('click', prev);
+
+    function startAuto() { timer = setInterval(next, 5000); }
+    function stopAuto() { clearInterval(timer); }
+
+    if (slides.length > 1) {
+      startAuto();
+      root.addEventListener('mouseenter', stopAuto);
+      root.addEventListener('mouseleave', startAuto);
+    }
+  });
+</script>

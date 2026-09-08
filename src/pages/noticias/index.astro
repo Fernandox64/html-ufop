@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import NewsFilters from '../../components/NewsFilters.astro';
+import { getCollection } from 'astro:content';
+
+const allNews = (await getCollection('noticias')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const years = [...new Set(allNews.map((n) => n.data.date.getFullYear()))].sort((a, b) => b - a);
+---
+
+<BaseLayout title="Notícias e Editais">
+  <Breadcrumb title="Notícias e Editais" />
+  <section class="section">
+    <div class="container">
+      <NewsFilters years={years} />
+      <div class="news-grid">
+        {allNews.map((entry) => (
+          <NewsCard
+            href={`/noticias/${entry.id}`}
+            image={entry.data.image}
+            tipo={entry.data.tipo}
+            date={entry.data.date}
+            title={entry.data.title}
+            resumo={entry.data.resumo}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

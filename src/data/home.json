@@ -1,0 +1,68 @@
+{
+  "heroSlides": [
+    {
+      "titulo": "Bem-vindo ao Departamento Modelo",
+      "subtitulo": "Servindo a comunidade com excelência, transparência e compromisso. (texto de exemplo)",
+      "imagem": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80",
+      "botao1_texto": "Conheça o Departamento",
+      "botao1_link": "/sobre",
+      "botao2_texto": "Fale Conosco",
+      "botao2_link": "/contato"
+    },
+    {
+      "titulo": "Fique por dentro de tudo",
+      "subtitulo": "Acompanhe notícias, editais e oportunidades do departamento. (texto de exemplo)",
+      "imagem": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
+      "botao1_texto": "Ver Notícias",
+      "botao1_link": "/noticias",
+      "botao2_texto": "Fale Conosco",
+      "botao2_link": "/contato"
+    },
+    {
+      "titulo": "Conheça nosso corpo docente",
+      "subtitulo": "Professores e pesquisadores dedicados ao ensino, pesquisa e extensão. (texto de exemplo)",
+      "imagem": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80",
+      "botao1_texto": "Ver Docentes",
+      "botao1_link": "/pessoal/docentes",
+      "botao2_texto": "Conheça o Departamento",
+      "botao2_link": "/sobre"
+    }
+  ],
+  "destaques": [
+    {
+      "icone": "bi-building",
+      "titulo": "Atendimento",
+      "descricao": "Horários e canais de atendimento ao público. (texto de exemplo)"
+    },
+    {
+      "icone": "bi-file-earmark-text",
+      "titulo": "Serviços",
+      "descricao": "Principais serviços oferecidos pelo departamento. (texto de exemplo)"
+    },
+    {
+      "icone": "bi-people",
+      "titulo": "Equipe",
+      "descricao": "Conheça os profissionais responsáveis por cada área. (texto de exemplo)"
+    }
+  ],
+  "quemSomos": {
+    "imagem": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "texto": "O Departamento Modelo atua para oferecer serviços de qualidade à comunidade, com uma equipe dedicada e comprometida com a transparência. (texto de exemplo — edite pelo painel administrativo)",
+    "botaoTexto": "Saiba mais",
+    "botaoLink": "/sobre"
+  },
+  "fotosInstitucionais": [
+    {
+      "imagem": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80",
+      "legenda": "Adicione fotos do departamento pelo painel administrativo"
+    },
+    {
+      "imagem": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1000&q=80",
+      "legenda": ""
+    },
+    {
+      "imagem": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80",
+      "legenda": ""
+    }
+  ]
+}

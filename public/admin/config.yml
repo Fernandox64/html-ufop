@@ -1,0 +1,172 @@
+backend:
+  name: github
+  repo: Fernandox64/html-ufop
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: noticias
+    label: "Notícias e Editais"
+    label_singular: "Notícia/Edital"
+    folder: src/content/noticias
+    format: yaml-frontmatter
+    extension: md
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{tipo}} — {{date}} — {{title}}"
+    fields:
+      - { name: title, label: Título, widget: string }
+      - name: tipo
+        label: Tipo
+        widget: select
+        options:
+          - { label: "Notícia", value: noticia }
+          - { label: Edital, value: edital }
+      - { name: date, label: Data, widget: datetime, format: "YYYY-MM-DD" }
+      - { name: image, label: Imagem, widget: image }
+      - { name: resumo, label: Resumo, widget: text }
+      - { name: body, label: Conteúdo, widget: markdown }
+
+  - name: docentes
+    label: Docentes
+    label_singular: Docente
+    folder: src/content/docentes
+    format: yaml
+    extension: yaml
+    slug: "{{slug}}"
+    identifier_field: nome
+    fields:
+      - { name: nome, label: Nome, widget: string }
+      - { name: foto, label: Foto, widget: image }
+      - { name: designacao, label: "Designação (titulação e instituição)", widget: string }
+
+  - name: funcionarios
+    label: Funcionários
+    label_singular: Funcionário
+    folder: src/content/funcionarios
+    format: yaml
+    extension: yaml
+    slug: "{{slug}}"
+    identifier_field: nome
+    fields:
+      - { name: nome, label: Nome, widget: string }
+      - { name: foto, label: Foto, widget: image }
+      - { name: cargo, label: Cargo, widget: string }
+
+singletons:
+  - name: home
+    label: "Página Inicial"
+    file: src/data/home.json
+    fields:
+      - name: heroSlides
+        label: "Carrossel Principal (topo da página)"
+        widget: list
+        fields:
+          - { name: titulo, label: Título, widget: string }
+          - { name: subtitulo, label: Subtítulo, widget: text }
+          - { name: imagem, label: "Imagem de fundo", widget: image }
+          - { name: botao1_texto, label: "Botão 1 - Texto", widget: string }
+          - { name: botao1_link, label: "Botão 1 - Link", widget: string, default: /sobre }
+          - { name: botao2_texto, label: "Botão 2 - Texto", widget: string }
+          - { name: botao2_link, label: "Botão 2 - Link", widget: string, default: /contato }
+      - name: destaques
+        label: "Cards de Destaque"
+        widget: list
+        fields:
+          - { name: icone, label: "Ícone (classe bootstrap-icons, ex: bi-headset)", widget: string }
+          - { name: titulo, label: Título, widget: string }
+          - { name: descricao, label: Descrição, widget: text }
+      - name: quemSomos
+        label: "Quem Somos"
+        widget: object
+        fields:
+          - { name: imagem, label: Imagem, widget: image }
+          - { name: texto, label: Texto, widget: text }
+          - { name: botaoTexto, label: "Texto do botão", widget: string }
+          - { name: botaoLink, label: "Link do botão", widget: string, default: /sobre }
+      - name: fotosInstitucionais
+        label: "Carrossel de Fotos"
+        widget: list
+        fields:
+          - { name: imagem, label: Imagem, widget: image }
+          - { name: legenda, label: Legenda, widget: string, required: false }
+
+  - name: sobre
+    label: "O Departamento"
+    file: src/data/sobre.json
+    fields:
+      - { name: titulo, label: Título, widget: string }
+      - { name: imagem, label: Imagem, widget: image }
+      - { name: textoLead, label: "Texto de destaque", widget: text }
+      - { name: textoCorpo, label: "Texto completo", widget: text }
+      - name: bullets
+        label: "Valores/Princípios"
+        widget: list
+        field: { name: item, label: Item, widget: string }
+
+  - name: graduacao
+    label: Graduação
+    file: src/data/graduacao.json
+    fields:
+      - { name: textoLead, label: "Texto de destaque", widget: text }
+      - name: cursos
+        label: Cursos
+        widget: list
+        fields:
+          - { name: nome, label: "Nome do curso", widget: string }
+          - { name: modalidade, label: Modalidade, widget: string, hint: "Ex: Bacharelado, Licenciatura" }
+          - { name: icone, label: Ícone, widget: string, default: bi-mortarboard }
+
+  - name: pos-graduacao
+    label: "Pós-Graduação"
+    file: src/data/pos-graduacao.json
+    fields:
+      - { name: textoLead, label: "Texto de destaque", widget: text }
+      - name: programas
+        label: Programas
+        widget: list
+        fields:
+          - { name: nome, label: "Nome do programa", widget: string }
+          - { name: nivel, label: Nível, widget: string, hint: "Ex: Mestrado, Doutorado" }
+          - { name: icone, label: Ícone, widget: string, default: bi-mortarboard }
+
+  - name: servicos
+    label: Serviços
+    file: src/data/servicos.json
+    fields:
+      - { name: textoLead, label: "Texto de destaque", widget: text }
+      - name: servicos
+        label: Serviços
+        widget: list
+        fields:
+          - { name: icone, label: Ícone, widget: string }
+          - { name: titulo, label: Título, widget: string }
+          - { name: descricao, label: Descrição, widget: text }
+
+  - name: contato
+    label: Contato
+    file: src/data/contato.json
+    fields:
+      - { name: textoLead, label: "Texto de destaque", widget: text }
+      - { name: endereco, label: Endereço, widget: text }
+      - { name: telefone, label: Telefone, widget: string }
+      - { name: email, label: E-mail, widget: string }
+
+  - name: configuracoes
+    label: "Configurações do Site"
+    file: src/data/settings.json
+    fields:
+      - { name: nomeDepartamento, label: "Nome do Departamento", widget: string }
+      - { name: logo, label: Logo, widget: image, required: false }
+      - { name: descricaoFooter, label: "Descrição (rodapé)", widget: text }
+      - name: redesSociais
+        label: "Redes Sociais"
+        widget: object
+        required: false
+        fields:
+          - { name: facebook, label: Facebook, widget: string, required: false }
+          - { name: instagram, label: Instagram, widget: string, required: false }
+          - { name: linkedin, label: LinkedIn, widget: string, required: false }
+          - { name: youtube, label: YouTube, widget: string, required: false }

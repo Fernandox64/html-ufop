@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import sobre from '../data/sobre.json';
+---
+
+<BaseLayout title={sobre.titulo}>
+  <Breadcrumb title={sobre.titulo} />
+  <section class="section">
+    <div class="container">
+      <div class="about-split">
+        <img src={sobre.imagem} alt={sobre.titulo} />
+        <div>
+          <h2>{sobre.titulo}</h2>
+          <p class="lead">{sobre.textoLead}</p>
+          <p class="body-text">{sobre.textoCorpo}</p>
+          <ul class="dot-list">
+            {sobre.bullets.map((b) => (
+              <li>{b.item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

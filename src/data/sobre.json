@@ -1,0 +1,11 @@
+{
+  "titulo": "Sobre o Departamento",
+  "imagem": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+  "textoLead": "Conheça um pouco mais sobre a história, a missão e os valores do nosso departamento. (texto de exemplo)",
+  "textoCorpo": "Este é um texto de exemplo. Substitua pelo conteúdo real do departamento pelo painel administrativo.\n\nO Departamento Modelo foi criado para atender às demandas da comunidade acadêmica com agilidade e transparência, reunindo ensino, pesquisa e extensão em um só lugar. Nossa equipe trabalha diariamente para garantir um atendimento de qualidade, seguindo os princípios de ética e responsabilidade pública.",
+  "bullets": [
+    { "item": "Atendimento humanizado (texto de exemplo)" },
+    { "item": "Transparência nas informações (texto de exemplo)" },
+    { "item": "Compromisso com a comunidade (texto de exemplo)" }
+  ]
+}

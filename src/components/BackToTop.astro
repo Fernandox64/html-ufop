@@ -1,0 +1,35 @@
+<button type="button" id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 52 52">
+    <circle class="back-to-top-ring-bg" cx="26" cy="26" r="23"></circle>
+    <circle class="back-to-top-ring-fill" cx="26" cy="26" r="23"></circle>
+  </svg>
+  <i class="bi bi-arrow-up" aria-hidden="true"></i>
+</button>
+
+<script>
+  const btn = document.getElementById('backToTop');
+  const ring = btn?.querySelector<SVGCircleElement>('.back-to-top-ring-fill');
+
+  if (btn && ring) {
+    const radius = ring.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+    ring.style.strokeDasharray = `${circumference} ${circumference}`;
+    ring.style.strokeDashoffset = String(circumference);
+
+    const updateProgress = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      ring.style.strokeDashoffset = String(circumference * (1 - progress));
+      btn.classList.toggle('is-visible', scrollTop > 350);
+    };
+
+    window.addEventListener('scroll', updateProgress);
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>

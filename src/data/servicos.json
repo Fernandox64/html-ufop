@@ -1,0 +1,8 @@
+{
+  "textoLead": "Confira abaixo os principais serviços oferecidos pelo departamento. (texto de exemplo)",
+  "servicos": [
+    { "icone": "bi-file-earmark-text", "titulo": "Serviço 1 (exemplo)", "descricao": "Descrição breve do serviço oferecido." },
+    { "icone": "bi-headset", "titulo": "Serviço 2 (exemplo)", "descricao": "Descrição breve do serviço oferecido." },
+    { "icone": "bi-clipboard-check", "titulo": "Serviço 3 (exemplo)", "descricao": "Descrição breve do serviço oferecido." }
+  ]
+}

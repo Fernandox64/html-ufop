@@ -1,0 +1,7 @@
+{
+  "textoLead": "Conheça os cursos de graduação oferecidos pelo departamento. (texto de exemplo)",
+  "cursos": [
+    { "nome": "Nome do Curso de Exemplo", "modalidade": "Bacharelado", "icone": "bi-mortarboard" },
+    { "nome": "Nome do Curso de Exemplo", "modalidade": "Licenciatura", "icone": "bi-mortarboard" }
+  ]
+}

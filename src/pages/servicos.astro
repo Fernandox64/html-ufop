@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import IconCard from '../components/IconCard.astro';
+import servicos from '../data/servicos.json';
+---
+
+<BaseLayout title="Serviços">
+  <Breadcrumb title="Nossos Serviços" />
+  <section class="section">
+    <div class="container">
+      <p class="lead-center">{servicos.textoLead}</p>
+      <div class="icon-cards-grid">
+        {servicos.servicos.map((s) => (
+          <IconCard icon={s.icone} title={s.titulo} description={s.descricao} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

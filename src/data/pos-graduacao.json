@@ -1,0 +1,7 @@
+{
+  "textoLead": "Conheça os programas de pós-graduação oferecidos pelo departamento. (texto de exemplo)",
+  "programas": [
+    { "nome": "Nome do Programa de Exemplo", "nivel": "Mestrado", "icone": "bi-mortarboard" },
+    { "nome": "Nome do Programa de Exemplo", "nivel": "Doutorado", "icone": "bi-mortarboard" }
+  ]
+}

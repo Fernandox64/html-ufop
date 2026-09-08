@@ -1,0 +1,86 @@
+---
+export interface Props {
+  slides: {
+    titulo: string;
+    subtitulo: string;
+    imagem: string;
+    botao1_texto: string;
+    botao1_link: string;
+    botao2_texto: string;
+    botao2_link: string;
+  }[];
+}
+const { slides } = Astro.props;
+---
+
+<section class="hero-slider" data-hero-slider>
+  <div class="hs-track" data-track>
+    {slides.map((s) => (
+      <div class="hs-slide" style={`background-image:url('${s.imagem}')`}>
+        <div class="container">
+          <div class="hs-content">
+            <h1>{s.titulo}</h1>
+            <p>{s.subtitulo}</p>
+            <div class="hero-actions">
+              <a href={s.botao1_link} class="btn btn-white">{s.botao1_texto}</a>
+              <a href={s.botao2_link} class="btn btn-outline">{s.botao2_texto}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {slides.length > 1 && (
+    <>
+      <button class="hs-nav prev" data-prev aria-label="Slide anterior"><i class="bi bi-chevron-left"></i></button>
+      <button class="hs-nav next" data-next aria-label="Próximo slide"><i class="bi bi-chevron-right"></i></button>
+      <div class="hs-dots" data-dots></div>
+    </>
+  )}
+</section>
+
+<script>
+  const hsRoot = document.querySelector<HTMLElement>('[data-hero-slider]');
+  const hsTrack = hsRoot?.querySelector<HTMLElement>('[data-track]');
+
+  if (hsRoot && hsTrack) {
+    const hsSlides = Array.from(hsTrack.children) as HTMLElement[];
+    const hsDotsWrap = hsRoot.querySelector<HTMLElement>('[data-dots]');
+    let hsCurrent = 0;
+    let hsTimer: ReturnType<typeof setInterval>;
+
+    if (hsDotsWrap) {
+      hsSlides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        if (i === 0) dot.classList.add('active');
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        hsDotsWrap.appendChild(dot);
+      });
+    }
+
+    function goTo(i: number) {
+      hsCurrent = (i + hsSlides.length) % hsSlides.length;
+      hsTrack!.style.transform = `translateX(-${hsCurrent * 100}%)`;
+      if (hsDotsWrap) {
+        Array.from(hsDotsWrap.children).forEach((d, di) => d.classList.toggle('active', di === hsCurrent));
+      }
+    }
+
+    function next() { goTo(hsCurrent + 1); }
+    function prev() { goTo(hsCurrent - 1); }
+
+    hsRoot.querySelector('[data-next]')?.addEventListener('click', next);
+    hsRoot.querySelector('[data-prev]')?.addEventListener('click', prev);
+
+    function startAuto() { hsTimer = setInterval(next, 6000); }
+    function stopAuto() { clearInterval(hsTimer); }
+
+    if (hsSlides.length > 1) {
+      startAuto();
+      hsRoot.addEventListener('mouseenter', stopAuto);
+      hsRoot.addEventListener('mouseleave', startAuto);
+    }
+  }
+</script>

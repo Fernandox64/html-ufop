@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import TeamCard from '../../components/TeamCard.astro';
+import { getCollection } from 'astro:content';
+
+const funcionarios = (await getCollection('funcionarios')).sort((a, b) =>
+  a.data.nome.localeCompare(b.data.nome)
+);
+---
+
+<BaseLayout title="Funcionários">
+  <Breadcrumb title="Funcionários" />
+  <section class="section">
+    <div class="container">
+      <p class="lead-center">Conheça a equipe técnico-administrativa do departamento. (texto de exemplo)</p>
+      {funcionarios.length > 0 ? (
+        <div class="team-grid">
+          {funcionarios.map((f) => (
+            <TeamCard foto={f.data.foto} nome={f.data.nome} subtitulo={f.data.cargo} />
+          ))}
+        </div>
+      ) : (
+        <p class="empty-state">Nenhum membro cadastrado nesta categoria ainda.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

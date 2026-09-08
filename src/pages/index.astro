@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSlider from '../components/HeroSlider.astro';
+import IconCard from '../components/IconCard.astro';
+import NewsCard from '../components/NewsCard.astro';
+import Carousel from '../components/Carousel.astro';
+import home from '../data/home.json';
+import { getCollection } from 'astro:content';
+
+const allNews = (await getCollection('noticias')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const latestNews = allNews.slice(0, 6);
+---
+
+<BaseLayout title="Início">
+  <HeroSlider slides={home.heroSlides} />
+
+  <section class="section">
+    <div class="container">
+      <div class="icon-cards-grid">
+        {home.destaques.map((d) => (
+          <IconCard icon={d.icone} title={d.titulo} description={d.descricao} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-surface">
+    <div class="container">
+      <div class="section-title-row">
+        <h2>Notícias recentes</h2>
+        <a href="/noticias" class="btn btn-outline-dark btn-sm">Ver mais <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="news-grid">
+        {latestNews.map((entry) => (
+          <NewsCard
+            href={`/noticias/${entry.id}`}
+            image={entry.data.image}
+            tipo={entry.data.tipo}
+            date={entry.data.date}
+            title={entry.data.title}
+            resumo={entry.data.resumo}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-split">
+        <img src={home.quemSomos.imagem} alt="Quem somos" />
+        <div>
+          <h2>Quem somos</h2>
+          <p>{home.quemSomos.texto}</p>
+          <a href={home.quemSomos.botaoLink} class="btn btn-primary">{home.quemSomos.botaoTexto}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-surface">
+    <div class="container">
+      <Carousel slides={home.fotosInstitucionais} overlay plain />
+    </div>
+  </section>
+</BaseLayout>
