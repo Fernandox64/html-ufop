@@ -1,0 +1,7 @@
+services:
+  departamento-modelo:
+    build: .
+    container_name: departamento-modelo
+    ports:
+      - "8080:80"
+    restart: unless-stopped
