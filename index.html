@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduCenter — Modelo de Site Educacional (HTML puro)</title>
+<meta name="description" content="Página de teste em HTML puro inspirada no tema Educenter: instituição de ensino com cursos, professores, eventos e blog.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== Topbar ===== -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-info">
+      <span><i class="bi bi-telephone"></i> (11) 4002-8922</span>
+      <span><i class="bi bi-envelope"></i> contato@educenter.com.br</span>
+      <span><i class="bi bi-geo-alt"></i> São Paulo, SP</span>
+    </div>
+    <div class="topbar-social">
+      <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-wrap">
+    <a href="#" class="logo"><span class="logo-badge"><i class="bi bi-mortarboard-fill"></i></span>Edu<span>Center</span></a>
+
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#courses">Cursos</a></li>
+        <li class="has-dropdown">
+          <a href="#">Páginas <i class="bi bi-chevron-down" style="font-size:11px"></i></a>
+          <ul class="dropdown">
+            <li><a href="#events">Eventos</a></li>
+            <li><a href="#testimonials">Depoimentos</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#" class="login-link">Entrar</a>
+      <a href="#courses" class="btn btn-primary btn-sm">Inscreva-se</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu"><i class="bi bi-list"></i></button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow"><i class="bi bi-stars"></i> Educação de qualidade para todos</span>
+      <h1>Seu futuro brilhante é a <em>nossa missão</em></h1>
+      <p>Cursos presenciais e online com professores especialistas, certificado reconhecido pelo mercado e suporte completo para você alcançar seus objetivos.</p>
+      <div class="hero-actions">
+        <a href="#courses" class="btn btn-primary">Ver Cursos <i class="bi bi-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-outline-dark">Fale Conosco</a>
+      </div>
+      <div class="hero-trust">
+        <div><strong>1000+</strong><span>Alunos formados</span></div>
+        <div><strong>60+</strong><span>Professores especialistas</span></div>
+        <div><strong>4.9/5</strong><span>Avaliação média</span></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80" alt="Alunos estudando em sala de aula moderna">
+      <div class="hero-card card-rating">
+        <div class="icon-circle"><i class="bi bi-star-fill"></i></div>
+        <div><strong>4.9 / 5</strong><span>Avaliação dos alunos</span></div>
+      </div>
+      <div class="hero-card card-cert">
+        <div class="icon-circle"><i class="bi bi-patch-check-fill"></i></div>
+        <div><strong>Certificado</strong><span>Reconhecido pelo MEC</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features / Banner cards ===== -->
+<section class="features">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="bi bi-mortarboard"></i></div>
+        <h3>Bolsas de Estudo</h3>
+        <p>Confira as bolsas e descontos disponíveis para o próximo semestre.</p>
+        <a href="#">Saiba mais <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="bi bi-bell"></i></div>
+        <h3>Mural de Avisos</h3>
+        <p>Fique por dentro dos comunicados, prazos e novidades da instituição.</p>
+        <a href="#">Saiba mais <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="bi bi-trophy"></i></div>
+        <h3>Nossas Conquistas</h3>
+        <p>Conheça os prêmios e reconhecimentos conquistados pela EduCenter.</p>
+        <a href="#">Saiba mais <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="bi bi-pencil-square"></i></div>
+        <h3>Matrícula Aberta</h3>
+        <p>Garanta sua vaga agora, as inscrições para o próximo período estão abertas.</p>
+        <a href="#">Matricule-se <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-media">
+      <div class="about-badge"><strong>15+</strong><span>Anos de<br>experiência</span></div>
+      <img class="main" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="Professora orientando alunos em sala">
+      <img class="floating" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80" alt="Formatura de estudantes">
+    </div>
+    <div class="about-text">
+      <span class="eyebrow"><i class="bi bi-building"></i> Sobre a EduCenter</span>
+      <h2>Formando profissionais preparados para o futuro do mercado</h2>
+      <p>Há mais de 15 anos ajudamos alunos a desenvolverem habilidades práticas por meio de uma metodologia moderna, professores experientes e conteúdo sempre atualizado com as demandas do mercado de trabalho.</p>
+      <ul class="checklist">
+        <li><i class="bi bi-check-lg"></i> Professores qualificados e experientes</li>
+        <li><i class="bi bi-check-lg"></i> Certificados reconhecidos pelo mercado</li>
+        <li><i class="bi bi-check-lg"></i> Metodologia prática e atualizada</li>
+        <li><i class="bi bi-check-lg"></i> Suporte ao aluno 24 horas por dia</li>
+      </ul>
+      <div class="about-footer">
+        <a href="#courses" class="btn btn-primary">Saiba Mais</a>
+        <div class="about-phone">
+          <div class="icon-circle"><i class="bi bi-telephone-fill"></i></div>
+          <div><span>Ligue para nós</span><strong>(11) 4002-8922</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Courses ===== -->
+<section class="section section-light" id="courses">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i class="bi bi-journal-bookmark"></i> Nossos cursos</span>
+      <h2>Cursos populares para você começar agora</h2>
+      <p>Escolha entre diversas áreas de conhecimento e comece a transformar sua carreira hoje mesmo.</p>
+    </div>
+
+    <div class="filter-tabs" id="filterTabs">
+      <button class="active" data-filter="all">Todos</button>
+      <button data-filter="tecnologia">Tecnologia</button>
+      <button data-filter="negocios">Negócios</button>
+      <button data-filter="design">Design</button>
+      <button data-filter="idiomas">Idiomas</button>
+    </div>
+
+    <div class="courses-grid" id="coursesGrid">
+      <article class="course-card" data-cat="tecnologia">
+        <div class="course-thumb">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Curso de Desenvolvimento Web Full Stack">
+          <span class="course-tag">Tecnologia</span>
+          <span class="course-price">R$ 397</span>
+        </div>
+        <div class="course-body">
+          <h3><a href="#">Desenvolvimento Web Full Stack</a></h3>
+          <p>Aprenda HTML, CSS, JavaScript e back-end do zero até projetos reais.</p>
+          <div class="course-instructor">
+            <img src="https://i.pravatar.cc/80?img=12" alt="Marcos Silva">
+            <span>Prof. Marcos Silva</span>
+          </div>
+          <div class="course-meta">
+            <span><i class="bi bi-people"></i> 120 alunos</span>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-cat="negocios">
+        <div class="course-thumb">
+          <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=600&q=80" alt="Curso de Marketing Digital">
+          <span class="course-tag">Negócios</span>
+          <span class="course-price">R$ 297</span>
+        </div>
+        <div class="course-body">
+          <h3><a href="#">Marketing Digital na Prática</a></h3>
+          <p>Estratégias de tráfego pago, redes sociais e branding para negócios.</p>
+          <div class="course-instructor">
+            <img src="https://i.pravatar.cc/80?img=32" alt="Ana Costa">
+            <span>Profª. Ana Costa</span>
+          </div>
+          <div class="course-meta">
+            <span><i class="bi bi-people"></i> 98 alunos</span>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.8</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-cat="design">
+        <div class="course-thumb">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" alt="Curso de UI/UX Design">
+          <span class="course-tag">Design</span>
+          <span class="course-price">R$ 249</span>
+        </div>
+        <div class="course-body">
+          <h3><a href="#">UI/UX Design para Iniciantes</a></h3>
+          <p>Fundamentos de design de interfaces, prototipação e Figma na prática.</p>
+          <div class="course-instructor">
+            <img src="https://i.pravatar.cc/80?img=51" alt="Rafael Souza">
+            <span>Prof. Rafael Souza</span>
+          </div>
+          <div class="course-meta">
+            <span><i class="bi bi-people"></i> 76 alunos</span>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.7</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-cat="idiomas">
+        <div class="course-thumb">
+          <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&q=80" alt="Curso de Inglês para Negócios">
+          <span class="course-tag">Idiomas</span>
+          <span class="course-price">R$ 199</span>
+        </div>
+        <div class="course-body">
+          <h3><a href="#">Inglês para Negócios</a></h3>
+          <p>Comunicação profissional em inglês para reuniões, e-mails e apresentações.</p>
+          <div class="course-instructor">
+            <img src="https://i.pravatar.cc/80?img=45" alt="Camila Rocha">
+            <span>Profª. Camila Rocha</span>
+          </div>
+          <div class="course-meta">
+            <span><i class="bi bi-people"></i> 150 alunos</span>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.9</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-cat="tecnologia">
+        <div class="course-thumb">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Curso de Ciência de Dados com Python">
+          <span class="course-tag">Tecnologia</span>
+          <span class="course-price">R$ 449</span>
+        </div>
+        <div class="course-body">
+          <h3><a href="#">Ciência de Dados com Python</a></h3>
+          <p>Análise de dados, machine learning e visualização com Python na prática.</p>
+          <div class="course-instructor">
+            <img src="https://i.pravatar.cc/80?img=15" alt="Bruno Lima">
+            <span>Prof. Bruno Lima</span>
+          </div>
+          <div class="course-meta">
+            <span><i class="bi bi-people"></i> 64 alunos</span>
+            <span class="rating"><i class="bi bi-star-fill"></i> 5.0</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course-card" data-cat="negocios">
+        <div class="course-thumb">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Curso de Gestão de Projetos Ágeis">
+          <span class="course-tag">Negócios</span>
+          <span class="course-price">R$ 279</span>
+        </div>
+        <div class="course-body">
+          <h3><a href="#">Gestão de Projetos Ágeis</a></h3>
+          <p>Scrum, Kanban e metodologias ágeis aplicadas a projetos reais.</p>
+          <div class="course-instructor">
+            <img src="https://i.pravatar.cc/80?img=47" alt="Juliana Alves">
+            <span>Profª. Juliana Alves</span>
+          </div>
+          <div class="course-meta">
+            <span><i class="bi bi-people"></i> 89 alunos</span>
+            <span class="rating"><i class="bi bi-star-fill"></i> 4.6</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="courses-more">
+      <a href="#" class="btn btn-outline-dark">Ver Todos os Cursos <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stats ===== -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <i class="bi bi-person-video3"></i>
+        <strong class="counter" data-target="60">0</strong>
+        <span>Professores</span>
+      </div>
+      <div class="stat-item">
+        <i class="bi bi-journal-bookmark"></i>
+        <strong class="counter" data-target="50">0</strong>
+        <span>Cursos</span>
+      </div>
+      <div class="stat-item">
+        <i class="bi bi-mortarboard"></i>
+        <strong class="counter" data-target="1000">0</strong>
+        <span>Alunos</span>
+      </div>
+      <div class="stat-item">
+        <i class="bi bi-emoji-smile"></i>
+        <strong class="counter" data-target="1400">0</strong>
+        <span>Clientes Satisfeitos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA Banner ===== -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <span class="eyebrow"><i class="bi bi-broadcast"></i> Workshop especial</span>
+        <h2>Workshop de Redes Avançadas — vagas limitadas</h2>
+        <p>Aprenda infraestrutura de redes modernas em um workshop intensivo de 3 dias, com certificado incluso.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-secondary">Inscreva-se Agora <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Testimonials ===== -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i class="bi bi-chat-quote"></i> Depoimentos</span>
+      <h2>O que nossos alunos dizem</h2>
+      <p>Histórias reais de quem transformou a carreira com a EduCenter.</p>
+    </div>
+
+    <div class="t-slider">
+      <div class="t-track" id="tTrack">
+        <div class="t-slide">
+          <i class="bi bi-quote quote-icon"></i>
+          <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p>"O curso mudou completamente minha carreira. Em 6 meses consegui minha primeira vaga como desenvolvedor."</p>
+          <div class="t-author">
+            <img src="https://i.pravatar.cc/100?img=13" alt="Pedro Henrique">
+            <div><strong>Pedro Henrique</strong><span>Desenvolvimento Web Full Stack</span></div>
+          </div>
+        </div>
+        <div class="t-slide">
+          <i class="bi bi-quote quote-icon"></i>
+          <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p>"Professores atenciosos e conteúdo muito atualizado. Recomendo demais para quem quer migrar de área!"</p>
+          <div class="t-author">
+            <img src="https://i.pravatar.cc/100?img=25" alt="Larissa Fernandes">
+            <div><strong>Larissa Fernandes</strong><span>Marketing Digital na Prática</span></div>
+          </div>
+        </div>
+        <div class="t-slide">
+          <i class="bi bi-quote quote-icon"></i>
+          <div class="t-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p>"Suporte excelente e certificado reconhecido pelo mercado. Valeu muito a pena investir na EduCenter."</p>
+          <div class="t-author">
+            <img src="https://i.pravatar.cc/100?img=33" alt="Thiago Martins">
+            <div><strong>Thiago Martins</strong><span>Ciência de Dados com Python</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="t-dots" id="tDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Events ===== -->
+<section class="section" id="events">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i class="bi bi-calendar-event"></i> Eventos</span>
+      <h2>Próximos eventos e workshops</h2>
+      <p>Participe dos nossos eventos presenciais e online e amplie sua rede de contatos.</p>
+    </div>
+
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-date"><strong>15</strong><span>Out</span></div>
+        <div class="event-body">
+          <h3>Feira de Profissões 2026</h3>
+          <div class="meta">
+            <span><i class="bi bi-clock"></i> 09:00 – 17:00</span>
+            <span><i class="bi bi-geo-alt"></i> Auditório Principal</span>
+          </div>
+          <a href="#">Inscrever-se <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><strong>28</strong><span>Out</span></div>
+        <div class="event-body">
+          <h3>Workshop de Redes Avançadas</h3>
+          <div class="meta">
+            <span><i class="bi bi-clock"></i> 14:00 – 18:00</span>
+            <span><i class="bi bi-geo-alt"></i> Sala 302</span>
+          </div>
+          <a href="#">Inscrever-se <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><strong>05</strong><span>Nov</span></div>
+        <div class="event-body">
+          <h3>Palestra: Carreiras em Tecnologia</h3>
+          <div class="meta">
+            <span><i class="bi bi-clock"></i> 19:00 – 21:00</span>
+            <span><i class="bi bi-geo-alt"></i> Online (Zoom)</span>
+          </div>
+          <a href="#">Inscrever-se <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Blog ===== -->
+<section class="section section-light" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i class="bi bi-newspaper"></i> Blog</span>
+      <h2>Últimas notícias e artigos</h2>
+      <p>Conteúdo para te ajudar a tomar as melhores decisões sobre sua educação e carreira.</p>
+    </div>
+
+    <div class="blog-grid">
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Estudante escolhendo curso">
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> 02 Set 2026</span>
+            <span><i class="bi bi-person"></i> Equipe EduCenter</span>
+          </div>
+          <h3><a href="#">5 Dicas para Escolher o Curso Ideal</a></h3>
+          <p>Descubra como avaliar suas metas e escolher a formação certa para sua carreira.</p>
+          <a href="#" class="read-more">Leia mais <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?auto=format&fit=crop&w=600&q=80" alt="Ensino híbrido com laptop">
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> 24 Ago 2026</span>
+            <span><i class="bi bi-person"></i> Equipe EduCenter</span>
+          </div>
+          <h3><a href="#">Como o Ensino Híbrido Está Transformando a Educação</a></h3>
+          <p>Entenda as vantagens de combinar aulas presenciais e online no aprendizado.</p>
+          <a href="#" class="read-more">Leia mais <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Pilha de livros e bolsas de estudo">
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> 15 Ago 2026</span>
+            <span><i class="bi bi-person"></i> Equipe EduCenter</span>
+          </div>
+          <h3><a href="#">Bolsas de Estudo: Como Conseguir a Sua</a></h3>
+          <p>Veja o passo a passo para se candidatar às bolsas disponíveis este semestre.</p>
+          <a href="#" class="read-more">Leia mais <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Newsletter ===== -->
+<section class="section" style="padding-top:0" id="contact">
+  <div class="container">
+    <div class="newsletter">
+      <div>
+        <h2>Fique por dentro das novidades</h2>
+        <p>Receba avisos de novos cursos, bolsas e eventos direto no seu e-mail.</p>
+        <div class="newsletter-msg" id="newsletterMsg"><i class="bi bi-check-circle-fill"></i> Inscrição feita com sucesso! Obrigado.</div>
+      </div>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Seu melhor e-mail" required>
+        <button type="submit" class="btn btn-primary">Inscrever</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#" class="logo"><span class="logo-badge"><i class="bi bi-mortarboard-fill"></i></span>Edu<span style="color:var(--secondary)">Center</span></a>
+        <p>Instituição de ensino dedicada a formar profissionais preparados para os desafios do mercado, com cursos presenciais e online.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#courses">Cursos</a></li>
+          <li><a href="#events">Eventos</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Cursos</h4>
+        <ul>
+          <li><a href="#courses">Desenvolvimento Web</a></li>
+          <li><a href="#courses">Marketing Digital</a></li>
+          <li><a href="#courses">UI/UX Design</a></li>
+          <li><a href="#courses">Inglês para Negócios</a></li>
+          <li><a href="#courses">Ciência de Dados</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-geo-alt"></i> Av. Paulista, 1000 — São Paulo, SP</li>
+          <li><i class="bi bi-telephone"></i> (11) 4002-8922</li>
+          <li><i class="bi bi-envelope"></i> contato@educenter.com.br</li>
+          <li><i class="bi bi-clock"></i> Seg–Sex: 08h às 20h</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 EduCenter. Todos os direitos reservados. — Página de teste, layout inspirado no tema Educenter.</span>
+      <div class="legal">
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo"><i class="bi bi-arrow-up"></i></button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
